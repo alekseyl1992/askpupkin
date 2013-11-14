@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be smart - Ask Pupkin</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <div class="container">
+        <div class="row" id="header">
+            <div id="logo" class="col-md-10">
+                <h2>Be smart - Ask Pupkin</h2>
+            </div>
+            <div class="col-md-2" id="headerRight">
+                <span> pupkin</span>
+                <span id="logoutLink"><a href="#">logout</a></span>
+            </div>
+        </div>
+
+        <div class="row" id="content">
+            <div class="col-md-9" id="leftCol">
+                <ul class="nav nav-tabs" id="tabs">
+                    {% if page == 'popular' %}
+                    <li><a href="/">New</a></li>
+                    <li class="active"><a href="/popular/">Popular</a></li>
+                    {% else %}
+                    <li class="active"><a href="/">New</a></li>
+                    <li><a href="/popular/">Popular</a></li>
+                    {% endif %}
+                    <span id="ask" class="pull-right">
+                        <a data-toggle="modal" href="#myModal" id="askLink">ASK!</a>
+                    </span>
+                </ul>
+
+                <div class="row">
+                    <div class="thumbnail" id="questions">
+
+                        {% for question in questions %}
+                        <div class="thumbnail question">
+                            <div class="row">
+                                <div class="col-md-1 rating">
+                                    <a href="#" class="ratingArrow">
+                                        <div class="glyphicon glyphicon-chevron-up"></div>
+                                    </a>
+                                    <div><b>{{ question.rating }}</b></div>
+                                    <a href="#" class="ratingArrow">
+                                        <div class="glyphicon glyphicon-chevron-down"></div>
+                                    </a>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="questionHeader">
+                                        <span class="qheader">{{ question.title }}</span>
+                                        <span class="qdate pull-right">{{ question.date }}</span>
+                                    </div>
+                                    <div class="questionContent">
+                                        {{ question.content }}
+                                    </div>
+                                    <div class="questionFooter">
+                                        <a href="#">Read answers ({{ question.answer_set.count }})</a> |
+                                        <a href="#">Answer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" id="rightCol">
+                <form id="search-form" method="GET">
+                    <div class="input-group" id="searchBox">
+                        <input id="search-query" type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button id="search-button" class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                    </div>
+                </form>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Tags cloud</div>
+                    <div class="panel-body" id="tagCloud">
+                        {% for tag in popular_tags %}
+                        <a href="#" class="tw{{ tag.weight }}">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Last registered</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="lastRegisteredList">
+                                    {% for user in last_registered_left %}
+                                    <li><a href="#">{{ user.username }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="lastRegisteredList">
+                                    {% for user in last_registered_right %}
+                                    <li><a href="#">{{ user.username }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="lastRegistered">
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center">
+            <ul class="pagination">
+                <li><a href="/{{ page }}/?page=1">&laquo;</a></li>
+                {%  for i in page_range %}
+                    {%  if  i == page_id %}
+                    <li class="active"><a href="/{{ page }}/?page={{ i }}">{{ i }}</a></li>
+                    {% else %}
+                    <li><a href="/{{ page }}/?page={{ i }}">{{ i }}</a></li>
+                    {%  endif %}
+                {%  endfor %}
+                <li><a href="/{{ page }}/?page={{ pages_count }}">&raquo;</a></li>
+            </ul>
+        </footer>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Ask here!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" name="addQuestion" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="qtitle" class="col-lg-2 control-label">Title</label>
+                                <div class="col-lg-10">
+                                    <input type="text"  class="form-control" name="qtitle" id="qtitle" placeholder="What's your problem?">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="qquestion" class="col-lg-2 control-label">Question</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="10" name="qquestion" id="qquestion" placeholder="Put detailed information here"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="qtags" class="col-lg-2 control-label">Tags</label>
+                                <div class="col-lg-10">
+                                    <input type="text"  class="form-control" name="qtags" id="qtags" placeholder="tag1, tag2">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">ASK!</button>
+                        <button type="button" class="btn btn-default"  data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
