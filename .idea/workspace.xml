@@ -13,7 +13,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/askpupkin$queries.coverage" NAME="queries Coverage Results" MODIFIED="1384281298929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ask" />
-    <SUITE FILE_PATH="coverage/askpupkin$baseFiller.coverage" NAME="baseFiller Coverage Results" MODIFIED="1384099920335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ask" />
+    <SUITE FILE_PATH="coverage/askpupkin$baseFiller.coverage" NAME="baseFiller Coverage Results" MODIFIED="1384550295337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ask" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -32,19 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="432">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ask/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="36" selection-start="510" selection-end="510" vertical-scroll-proportion="0.632107" vertical-offset="36" max-vertical-offset="1404">
+            <state line="67" column="46" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="2412">
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -52,10 +43,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="answers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/answers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="46" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-9.333333" vertical-offset="162" max-vertical-offset="1440">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="116" column="1" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.25174826" vertical-offset="1944" max-vertical-offset="2538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questions.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/questions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="81" selection-start="1291" selection-end="1291" vertical-scroll-proportion="-14.0" vertical-offset="108" max-vertical-offset="972">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="61" selection-start="6015" selection-end="6015" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3330">
+            <state line="20" column="67" selection-start="682" selection-end="682" vertical-scroll-proportion="-5.3333335" vertical-offset="216" max-vertical-offset="2664">
               <folding />
             </state>
           </provider>
@@ -64,7 +82,27 @@
       <file leaf-file-name="queries.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ask/queries.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1152">
+            <state line="60" column="54" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="1368">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="baseFiller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="22" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="2376">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/askpupkin/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="12" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3078">
               <folding />
             </state>
           </provider>
@@ -73,7 +111,7 @@
       <file leaf-file-name="Django default" pinned="false" current="false" current-in-tab="false">
         <entry file="dbDummy://db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="24" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="360">
+            <state line="8" column="21" selection-start="0" selection-end="410" vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -82,8 +120,13 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ask/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="41" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="522">
-              <folding />
+            <state line="21" column="32" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1384541104748" expanded="true" signature="189:427" placeholder="..." />
+                <marker date="1384541104748" expanded="true" signature="457:688" placeholder="..." />
+                <marker date="1384541104748" expanded="true" signature="875:988" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,15 +141,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ask/models.py" />
-        <option value="$PROJECT_DIR$/ask/baseFiller.py" />
-        <option value="$PROJECT_DIR$/askpupkin/settings.py" />
-        <option value="$PROJECT_DIR$/ask/static/css/index.css" />
-        <option value="$PROJECT_DIR$/ask/queries.py" />
-        <option value="$PROJECT_DIR$/askpupkin/urls.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/ask/views.py" />
         <option value="db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/" />
+        <option value="$PROJECT_DIR$/askpupkin/urls.py" />
+        <option value="$PROJECT_DIR$/ask/models.py" />
+        <option value="$PROJECT_DIR$/askpupkin/settings.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/ask/queries.py" />
+        <option value="$PROJECT_DIR$/ask/baseFiller.py" />
+        <option value="$PROJECT_DIR$/ask/views.py" />
+        <option value="$PROJECT_DIR$/templates/questions.html" />
+        <option value="$PROJECT_DIR$/templates/answers.html" />
+        <option value="$PROJECT_DIR$/ask/static/css/index.css" />
       </list>
     </option>
   </component>
@@ -250,15 +295,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ask/baseFiller.py" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ask/baseFiller.py" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -350,27 +395,7 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="askpupkin" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -396,7 +421,27 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="askpupkin" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -547,18 +592,18 @@
     <frame x="64" y="-7" width="1303" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3376" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32828686" sideWeight="0.672" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25737053" sideWeight="0.67623603" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25737053" sideWeight="0.6784" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32376397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33811802" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -584,9 +629,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25737053" sideWeight="0.67623603" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32376397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32376397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -602,24 +647,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/ask/queries.py</url>
-          <line>52</line>
+          <line>64</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ask/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="6" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="216" />
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/dist-packages/django/db/models/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="414" column="0" selection-start="18509" selection-end="18509" vertical-scroll-proportion="0.33248082" vertical-offset="6836" max-vertical-offset="17766" />
@@ -640,69 +675,94 @@
         <state line="554" column="0" selection-start="21249" selection-end="21249" vertical-scroll-proportion="0.33163264" vertical-offset="9428" max-vertical-offset="22860" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="18" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1674" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="41" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="17" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="2376" />
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="24" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ask/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="11" selection-start="293" selection-end="293" vertical-scroll-proportion="0.37630662" vertical-offset="0" max-vertical-offset="574" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ask/queries.py">
+    <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1152">
+        <state line="12" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="32" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1384541104748" expanded="true" signature="189:427" placeholder="..." />
+            <marker date="1384541104748" expanded="true" signature="457:688" placeholder="..." />
+            <marker date="1384541104748" expanded="true" signature="875:988" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/askpupkin/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="0.33846155" vertical-offset="0" max-vertical-offset="3078">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+        <state line="3" column="12" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3078">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="61" selection-start="6015" selection-end="6015" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3330">
+        <state line="20" column="67" selection-start="682" selection-end="682" vertical-scroll-proportion="-5.3333335" vertical-offset="216" max-vertical-offset="2664">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/queries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="54" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="1368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="21" selection-start="0" selection-end="410" vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="22" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="2376">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="36" selection-start="510" selection-end="510" vertical-scroll-proportion="0.632107" vertical-offset="36" max-vertical-offset="1404">
+        <state line="67" column="46" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="2412">
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/questions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="81" selection-start="1291" selection-end="1291" vertical-scroll-proportion="-14.0" vertical-offset="108" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/answers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="46" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-9.333333" vertical-offset="162" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="1" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.25174826" vertical-offset="1944" max-vertical-offset="2538">
+          <folding />
         </state>
       </provider>
     </entry>

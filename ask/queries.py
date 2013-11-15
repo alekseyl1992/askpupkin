@@ -25,8 +25,8 @@ def get_question(pk):
     return Question.objects.get(pk=pk)
 
 
-def get_answers(question_id):
-    return Answer.objects.filter(question_id=question_id)
+def get_answers(question_id, offset, count=30):
+    return Answer.objects.filter(question_id=question_id)[offset:offset+count]
 
 
 def search_questions_by_tag(tag_name, offset, count=30):
@@ -43,6 +43,18 @@ def search_questions_by_content(content, offset, count=30):
 
 def get_popular_tags():
     return Tag.objects.annotate(quest_count=Count('question')).order_by('-quest_count')[0:25]
+
+
+def get_answers_count(question_id):
+    return Answer.objects.filter(question_id=question_id).count()
+
+
+def get_question_rating(question_id):
+    return QuestionVote.objects.filter(question_id=question_id).aggregate(models.Sum('value'))
+
+
+def get_answer_rating(answer_id):
+    return AnswerVote.objects.filter(answer_id=answer_id).aggregate(models.Sum('value'))
 
 
 def get_last_registered_users():

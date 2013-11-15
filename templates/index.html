@@ -27,10 +27,14 @@
                 <ul class="nav nav-tabs" id="tabs">
                     {% if page == 'popular' %}
                     <li><a href="/">New</a></li>
-                    <li class="active"><a href="/popular/">Popular</a></li>
-                    {% else %}
-                    <li class="active"><a href="/">New</a></li>
+                    <li class="active"><a>Popular</a></li>
+                    {% elif page == 'new' %}
+                    <li class="active"><a>New</a></li>
                     <li><a href="/popular/">Popular</a></li>
+                    {% else %}
+                    <li><a href="/">New</a></li>
+                    <li><a href="/popular/">Popular</a></li>
+                    <li class="active"><a>Question</a></li>
                     {% endif %}
                     <span id="ask" class="pull-right">
                         <a data-toggle="modal" href="#myModal" id="askLink">ASK!</a>
@@ -38,38 +42,7 @@
                 </ul>
 
                 <div class="row">
-                    <div class="thumbnail" id="questions">
-
-                        {% for question in questions %}
-                        <div class="thumbnail question">
-                            <div class="row">
-                                <div class="col-md-1 rating">
-                                    <a href="#" class="ratingArrow">
-                                        <div class="glyphicon glyphicon-chevron-up"></div>
-                                    </a>
-                                    <div><b>{{ question.rating }}</b></div>
-                                    <a href="#" class="ratingArrow">
-                                        <div class="glyphicon glyphicon-chevron-down"></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-11">
-                                    <div class="questionHeader">
-                                        <span class="qheader">{{ question.title }}</span>
-                                        <span class="qdate pull-right">{{ question.date }}</span>
-                                    </div>
-                                    <div class="questionContent">
-                                        {{ question.content }}
-                                    </div>
-                                    <div class="questionFooter">
-                                        <a href="#">Read answers ({{ question.answer_set.count }})</a> |
-                                        <a href="#">Answer</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-
-                    </div>
+                    {% block content %}{% endblock %}
                 </div>
             </div>
 
@@ -123,17 +96,7 @@
         </div>
 
         <footer class="text-center">
-            <ul class="pagination">
-                <li><a href="/{{ page }}/?page=1">&laquo;</a></li>
-                {%  for i in page_range %}
-                    {%  if  i == page_id %}
-                    <li class="active"><a href="/{{ page }}/?page={{ i }}">{{ i }}</a></li>
-                    {% else %}
-                    <li><a href="/{{ page }}/?page={{ i }}">{{ i }}</a></li>
-                    {%  endif %}
-                {%  endfor %}
-                <li><a href="/{{ page }}/?page={{ pages_count }}">&raquo;</a></li>
-            </ul>
+            {% block paginator %}{% endblock %}
         </footer>
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

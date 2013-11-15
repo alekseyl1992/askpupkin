@@ -1,5 +1,5 @@
 .container {
-	width: 80%;
+	width: 90%;
 	border: 0;
 
     margin-left: auto;
@@ -124,4 +124,13 @@
 .qdate {
     padding-right: 1%;
     color: #c3c3c3;
+}
+
+.answers_title {
+    font-weight: bolder;
+    font-size: large;
+}
+
+.asker_name {
+    padding-right: 1%;
 }

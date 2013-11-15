@@ -9,6 +9,7 @@ urlpatterns = patterns('ask.views',
     url(r'^$', 'index_latest', name='index_latest'),
     url(r'^new/$', 'index_latest', name='index_latest'),
     url(r'^popular/$', 'index_popular', name='index_popular'),
+    url(r'^question/$', 'question', name='question'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
