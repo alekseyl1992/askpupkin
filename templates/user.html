@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block tabs %}
+    <li><a href="/">New</a></li>
+    <li><a href="/popular/">Popular</a></li>
+    <li class="active"><a>User: {{ user.username }}</a></li>
+{% endblock %}
+
+{% block content %}
+    {{ user.username }}
+{% endblock %}

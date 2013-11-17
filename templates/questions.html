@@ -1,0 +1,75 @@
+{% extends "index.html" %}
+
+{% block tabs %}
+    {% if page == 'popular' %}
+    <li><a href="/">New</a></li>
+    <li class="active"><a>Popular</a></li>
+    {% elif page == 'new' %}
+    <li class="active"><a>New</a></li>
+    <li><a href="/popular/">Popular</a></li>
+    {% elif page == 'tag' %}
+    <li><a href="/">New</a></li>
+    <li><a href="/popular/">Popular</a></li>
+    <li class="active"><a>Tag: {{ tag }} ({{ questions_count }})</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="thumbnail" id="questions">
+        {% for question in questions %}
+        <div class="thumbnail question">
+            <div class="row">
+                <div class="col-md-1 rating">
+                    <a href="#" class="ratingArrow">
+                        <div class="glyphicon glyphicon-chevron-up"></div>
+                    </a>
+                    <div><b>{{ question.rating }}</b></div>
+                    <a href="#" class="ratingArrow">
+                        <div class="glyphicon glyphicon-chevron-down"></div>
+                    </a>
+                </div>
+                <div class="col-md-11">
+                    <div class="questionHeader">
+                        <span class="qheader">{{ question.title }}</span>
+                    </div>
+                    <div class="questionContent">
+                        {{ question.short_content }}
+                    </div>
+                    <div class="questionFooter">
+                        <a href="/question/?q={{ question.id }}">Read answers ({{ question.answer_set.count }})</a> |
+                        <a href="/question/?q={{ question.id }}#answer">Answer</a>
+
+                        <span class="qdate pull-right">{{ question.date }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{%  endblock %}
+
+{% block paginator %}
+    <ul class="pagination">
+    {% if page == 'tag' %}
+        <li><a href="/{{ page }}/?t={{ tag.name }}&page=1">&laquo;</a></li>
+        {%  for i in page_range %}
+            {%  if  i == page_id %}
+            <li class="active"><a>{{ i }}</a></li>
+            {% else %}
+            <li><a href="/{{ page }}/?t={{ tag }}&page={{ i }}">{{ i }}</a></li>
+            {%  endif %}
+        {%  endfor %}
+        <li><a href="/{{ page }}/?t={{ tag }}&page={{ pages_count }}">&raquo;</a></li>
+    {% else %}
+        <li><a href="/{{ page }}/?page=1">&laquo;</a></li>
+        {%  for i in page_range %}
+            {%  if  i == page_id %}
+            <li class="active"><a>{{ i }}</a></li>
+            {% else %}
+            <li><a href="/{{ page }}/?page={{ i }}">{{ i }}</a></li>
+            {%  endif %}
+        {%  endfor %}
+        <li><a href="/{{ page }}/?page={{ pages_count }}">&raquo;</a></li>
+    {% endif %}
+    </ul>
+{% endblock %}

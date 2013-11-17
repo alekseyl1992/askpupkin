@@ -17,7 +17,7 @@
                 <h2>Be smart - Ask Pupkin</h2>
             </div>
             <div class="col-md-2" id="headerRight">
-                <span> pupkin</span>
+                <span><a href="/user/?name=ask_user">ask_user</a></span>
                 <span id="logoutLink"><a href="#">logout</a></span>
             </div>
         </div>
@@ -25,17 +25,7 @@
         <div class="row" id="content">
             <div class="col-md-9" id="leftCol">
                 <ul class="nav nav-tabs" id="tabs">
-                    {% if page == 'popular' %}
-                    <li><a href="/">New</a></li>
-                    <li class="active"><a>Popular</a></li>
-                    {% elif page == 'new' %}
-                    <li class="active"><a>New</a></li>
-                    <li><a href="/popular/">Popular</a></li>
-                    {% else %}
-                    <li><a href="/">New</a></li>
-                    <li><a href="/popular/">Popular</a></li>
-                    <li class="active"><a>Question</a></li>
-                    {% endif %}
+                    {% block tabs %}{% endblock %}
                     <span id="ask" class="pull-right">
                         <a data-toggle="modal" href="#myModal" id="askLink">ASK!</a>
                     </span>
@@ -62,7 +52,7 @@
                     <div class="panel-heading">Tags cloud</div>
                     <div class="panel-body" id="tagCloud">
                         {% for tag in popular_tags %}
-                        <a href="#" class="tw{{ tag.weight }}">{{ tag.name }}</a>
+                        <a href="/tag/?t={{ tag.name }}" class="tw{{ tag.weight }}">{{ tag.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -137,7 +127,7 @@
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
 </body>
 </html>

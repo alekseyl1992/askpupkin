@@ -5,11 +5,12 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('ask.views',
-    # Examples:
     url(r'^$', 'index_latest', name='index_latest'),
     url(r'^new/$', 'index_latest', name='index_latest'),
     url(r'^popular/$', 'index_popular', name='index_popular'),
     url(r'^question/$', 'question', name='question'),
+    url(r'^tag/$', 'tag', name='tag'),
+    url(r'^user/$', 'user', name='user'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

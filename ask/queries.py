@@ -61,6 +61,10 @@ def get_last_registered_users():
     return User.objects.order_by('-date_joined')[0:10]
 
 
+def get_tag_question_count(tag_name):
+    return Question.objects.filter(tags__name=tag_name).count()
+
+
 users = search_questions_by_title('Tellus', 10, 30)
 print users
 

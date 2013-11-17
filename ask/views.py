@@ -1,3 +1,4 @@
+from django.utils.datastructures import MultiValueDictKeyError
 from queries import *
 from django.shortcuts import *
 import math
@@ -64,8 +65,15 @@ def index(request, page):
 
     popular_tags_list = get_randomized_tags()
 
+    #cut of one line of content
     for quest in questions:
-        quest.short_content = quest.content[:70] + '...'
+        quest.short_content = quest.content[:85]
+        last_space_id = quest.short_content.rfind(' ')
+
+        if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
+            last_space_id -= 1
+
+        quest.short_content = quest.short_content[:last_space_id] + '...'
 
     return render(request, 'questions.html',
                   {'questions': questions,
@@ -127,3 +135,74 @@ def question(request):
                'page_range': paginator_range,
                'pages_count': pages_count}
               )
+
+
+def tag(request):
+    try:
+        tag = request.GET['t']
+    except MultiValueDictKeyError:
+        return Http404
+
+    page_id_str = request.GET.get('page')
+    page_id = 1
+
+    if page_id_str:
+        try:
+            page_id = int(page_id_str)
+        except ValueError:
+            return Http404
+
+    questions_per_page = 20
+
+    questions = search_questions_by_tag(tag, (page_id-1)*questions_per_page, questions_per_page)
+    questions_count = get_tag_question_count(tag)
+
+    paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
+
+    last_registered = get_last_registered_users()
+
+    popular_tags_list = get_randomized_tags()
+
+    #cut of one line of content
+    for quest in questions:
+        quest.short_content = quest.content[:85]
+        last_space_id = quest.short_content.rfind(' ')
+
+        if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
+            last_space_id -= 1
+
+        quest.short_content = quest.short_content[:last_space_id] + '...'
+
+    return render(request, 'questions.html',
+                  {'questions': questions,
+                   'questions_count': questions_count,
+                   'last_registered_left': last_registered[0:len(last_registered)/2],
+                   'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
+                   'popular_tags': popular_tags_list,
+                   'page': 'tag',
+                   'page_id': page_id,
+                   'page_range': paginator_range,
+                   'pages_count': pages_count,
+                   'tag': tag}
+                  )
+
+
+def user(request):
+    try:
+        name = request.GET['name']
+    except MultiValueDictKeyError:
+        return Http404
+
+    user = User.objects.filter(username__exact=name)[0]
+
+    last_registered = get_last_registered_users()
+
+    popular_tags_list = get_randomized_tags()
+
+    return render(request, 'user.html',
+                    {
+                        'user': user,
+                        'last_registered_left': last_registered[0:len(last_registered)/2],
+                        'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
+                        'popular_tags': popular_tags_list,
+                    })

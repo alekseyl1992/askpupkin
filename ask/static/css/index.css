@@ -134,3 +134,12 @@
 .asker_name {
     padding-right: 1%;
 }
+
+.panel-heading {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.panel-body {
+    font-size: medium;
+}
