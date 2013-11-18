@@ -65,10 +65,24 @@ def get_tag_question_count(tag_name):
     return Question.objects.filter(tags__name=tag_name).count()
 
 
-users = search_questions_by_title('Tellus', 10, 30)
-print users
+def get_asked_questions(user, offset, count=20):
+    return Question.objects.filter(author=user)[offset:offset+count]
 
 
+def get_asked_questions_count(user):
+    return Question.objects.filter(author=user).count()
 
 
+def get_answered_questions(user, offset, count=20):
+    answers = Answer.objects.filter(author=user).order_by('question').distinct()[offset:offset+count]
+    questions = []
+
+    for ans in answers:
+        questions.append(ans.question)
+
+    return questions
+
+
+def get_answered_questions_count(user):
+    return Answer.objects.filter(author=user).order_by('question').distinct().count()
 

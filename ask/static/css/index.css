@@ -106,7 +106,7 @@
     padding: 4px;
 }
 
-#qquestion {
+#id_content {
     resize: vertical;
 }
 
@@ -141,5 +141,17 @@
 }
 
 .panel-body {
+    font-size: medium;
+}
+
+#user_info_table {
+    font-size: medium;
+}
+
+#user_info_table td:nth-child(1) {
+    font-weight: bold;
+}
+
+.nav {
     font-size: medium;
 }

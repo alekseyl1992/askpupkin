@@ -51,7 +51,7 @@ for i in range(0, 1000):
     while has_user(username):
         username = rn.random_nick(gender='u') + str(random.randint(10, 999))
 
-    user = User.objects.create_user(username=username, email=re.randomMail())
+    user = User.objects.create_user(username=username, email=re.randomMail(), firstname=rn.random_nick(), lastname=rn.random_nick())
     user.set_password(rw.random_word())
     user.save()
     user_ids.append(user.id)
