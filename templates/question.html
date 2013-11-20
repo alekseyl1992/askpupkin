@@ -14,7 +14,7 @@
                 <span class="qheader">{{ question.title }}</span>
             </div>
             <div class="questionContent">
-                {{ question.short_content }}
+                {{ question.short_content|linebreaks }}
             </div>
             <div class="questionFooter">
                 <a href="/question/?q={{ question.id }}">Read answers ({{ question.answer_set.count }})</a> |

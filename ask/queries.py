@@ -22,7 +22,7 @@ def get_popular_questions(offset, count=30):
 
 
 def get_answers(question_id, offset, count=30):
-    return Answer.objects.filter(question_id=question_id)[offset:offset+count]
+    return Answer.objects.filter(question_id=question_id).order_by('-rating', 'date')[offset:offset+count]
 
 
 def search_questions_by_tag(tag_name, offset, count=30):

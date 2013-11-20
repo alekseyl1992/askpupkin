@@ -164,7 +164,7 @@
     padding-right: 40px;
 }
 
-.logged_out_message {
+.logged_out_message, .not_logged_to_answer {
     padding-top: 20px;
     font-size: medium;
     font-weight: bold;

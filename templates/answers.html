@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block tabs %}
-    <li xmlns="http://www.w3.org/1999/html"><a href="/">New</a></li>
+    <li><a href="/">New</a></li>
     <li><a href="/popular/">Popular</a></li>
     <li class="active"><a>Question</a></li>
 {% endblock %}
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-11">
                         <div class="questionContent">
-                            {{ answer.content }}
+                            {{ answer.content|linebreaks }}
                         </div>
                         <div class="questionFooter">
                             {%  if answer.right %}
@@ -69,6 +69,7 @@
             </div>
         {% endfor %}
 
+        {% if user.is_authenticated %}
         <div id="answerForm">
             <form method="POST" name="addQuestion" class="">
                 {% csrf_token %}
@@ -87,6 +88,11 @@
                 </div>
             </form>
         </div>
+        {% else %}
+            <div class="not_logged_to_answer">
+                Please <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">log in</a> to add your answer.
+            </div>
+        {% endif %}
     </div>
 {%  endblock %}
 

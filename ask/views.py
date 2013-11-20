@@ -4,7 +4,11 @@ from django.shortcuts import *
 import math
 from ask.forms import *
 from django.shortcuts import *
-
+from datetime import datetime
+import json
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core.exceptions import *
 
 def get_page_id(request):
     page_id_str = request.GET.get('page')
@@ -41,25 +45,53 @@ def get_paginator_range(objects_count, objects_per_page, page_id):
     return range(page_left, page_right + 1), pages_count
 
 
+def add_question(request, question_form):
+    title = question_form.cleaned_data['title']
+    content = question_form.cleaned_data['content']
+    date = datetime.now()
+    author = request.user
+    rating = 0
+
+    quest = Question(title=title, content=content, date=date, author=author, rating=rating)
+    quest.save()
+
+    for tag_name in question_form.cleaned_data['tags']:
+        try:
+            tag = Tag.objects.get(name__exact=tag_name)
+        except Tag.DoesNotExist:
+            tag = Tag(name=tag_name)
+            tag.save()
+
+        quest.tags.add(tag)
+
+    quest.save()
+
+    return quest.id
+
+
 def question_form_view(request):
     question_form_failed = False
-    question_form_success = False
+    question_id = None
     if request.method == 'POST':
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
-            question_form_success = True
+            #save new question to DB
+            if request.user.is_authenticated():
+                question_id = add_question(request, question_form)
+            else:
+                raise Http404
         else:
             question_form_failed = True
     else:
         question_form = QuestionForm()
 
-    return question_form, question_form_failed, question_form_success
+    return question_form, question_form_failed, question_id
 
 
 def index(request, page):
-    question_form, question_form_failed, success = question_form_view(request)
-    if success is True:
-        return HttpResponseRedirect('/thanks/')
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/q=' + question_id)
 
     page_id = get_page_id(request)
 
@@ -73,13 +105,18 @@ def index(request, page):
 
     #cut of one line of content
     for quest in questions:
-        quest.short_content = quest.content[:85]
-        last_space_id = quest.short_content.rfind(' ')
+        if len(quest.content) > 85:
+            quest.short_content = quest.content[:85]
+            last_space_id = quest.short_content.rfind(' ')
 
-        if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
-            last_space_id -= 1
+            if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
+                last_space_id -= 1
+            else:
+                last_space_id = len(quest.short_content) - 1
 
-        quest.short_content = quest.short_content[:last_space_id] + '...'
+            quest.short_content = quest.short_content[:last_space_id] + '...'
+        else:
+            quest.short_content = quest.content
 
     return render(request, 'questions.html',
                   {'questions': questions,
@@ -101,19 +138,9 @@ def index_popular(request):
 
 
 def question(request):
-    question_form, question_form_failed, success = question_form_view(request)
-    if success is True:
-        return HttpResponseRedirect('/thanks/')
-
-    answer_form_failed = False
-    if request.method == 'POST':
-        answer_form = AnswerForm(request.POST)
-        if answer_form.is_valid():
-            return HttpResponseRedirect('/thanks/')
-        else:
-            answer_form_failed = True
-    else:
-        answer_form = AnswerForm()
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
 
     question_id_str = request.GET.get('q')
 
@@ -121,6 +148,28 @@ def question(request):
         question_id = int(question_id_str)
     except (ValueError, TypeError):
         raise Http404
+
+    answer_form_failed = False
+    if request.method == 'POST':
+        answer_form = AnswerForm(request.POST)
+        if answer_form.is_valid():
+            #add answer to db
+            if request.user.is_authenticated():
+                answer = Answer(question_id=question_id,
+                                content=answer_form.cleaned_data['content'],
+                                author=request.user,
+                                date=datetime.now(),
+                                rating=0)
+
+                answer.save()
+                return HttpResponseRedirect('/question/?q=' + str(question_id))
+            else:
+                raise Http404
+
+        else:
+            answer_form_failed = True
+    else:
+        answer_form = AnswerForm()
 
     page_id = get_page_id(request)
 
