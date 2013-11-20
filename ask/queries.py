@@ -21,10 +21,6 @@ def get_popular_questions(offset, count=30):
     return Question.objects.order_by('-rating')[offset:offset+count]
 
 
-def get_question(pk):
-    return Question.objects.get(pk=pk)
-
-
 def get_answers(question_id, offset, count=30):
     return Answer.objects.filter(question_id=question_id)[offset:offset+count]
 

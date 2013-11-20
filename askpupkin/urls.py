@@ -11,10 +11,16 @@ urlpatterns = patterns('ask.views',
     url(r'^question/$', 'question', name='question'),
     url(r'^tag/$', 'tag', name='tag'),
     url(r'^user/$', 'user', name='user'),
+    url(r'search/$', 'search', name='search'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns('',
+    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout'),
 )

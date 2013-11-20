@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block tabs %}
-    <li><a href="/">New</a></li>
+    <li xmlns="http://www.w3.org/1999/html"><a href="/">New</a></li>
     <li><a href="/popular/">Popular</a></li>
     <li class="active"><a>Question</a></li>
 {% endblock %}
@@ -42,32 +42,51 @@
         <div class="answers_title">Answers ({{ answers.count }}):</div>
 
         {% for answer in answers %}
-        <div class="thumbnail question">
-            <div class="row">
-                <div class="col-md-1 rating">
-                    <a href="#" class="ratingArrow">
-                        <div class="glyphicon glyphicon-chevron-up"></div>
-                    </a>
-                    <div><b>{{ answer.rating }}</b></div>
-                    <a href="#" class="ratingArrow">
-                        <div class="glyphicon glyphicon-chevron-down"></div>
-                    </a>
-                </div>
-                <div class="col-md-11">
-                    <div class="questionContent">
-                        {{ answer.content }}
+            <div class="thumbnail question">
+                <div class="row">
+                    <div class="col-md-1 rating">
+                        <a href="#" class="ratingArrow">
+                            <div class="glyphicon glyphicon-chevron-up"></div>
+                        </a>
+                        <div><b>{{ answer.rating }}</b></div>
+                        <a href="#" class="ratingArrow">
+                            <div class="glyphicon glyphicon-chevron-down"></div>
+                        </a>
                     </div>
-                    <div class="questionFooter">
-                        {%  if answer.right %}
-                        <b>Right!</b>
-                        {% endif %}
-                        <div class="asker_name pull-right"><b>Answered by:</b> <a href="/user/?name={{ answer.author.username }}">{{ answer.author.username }}</a></div><br>
-                        <div class="qdate pull-right">{{ answer.date }}</div>
+                    <div class="col-md-11">
+                        <div class="questionContent">
+                            {{ answer.content }}
+                        </div>
+                        <div class="questionFooter">
+                            {%  if answer.right %}
+                            <b>Right!</b>
+                            {% endif %}
+                            <div class="asker_name pull-right"><b>Answered by:</b> <a href="/user/?name={{ answer.author.username }}">{{ answer.author.username }}</a></div><br>
+                            <div class="qdate pull-right">{{ answer.date }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
+
+        <div id="answerForm">
+            <form method="POST" name="addQuestion" class="">
+                {% csrf_token %}
+                {{ answer_form.non_field_errors }}
+                <div class="form-group">
+                    <label for="id_answer_content" class="control-label">Your answer:</label>
+                    {{ answer_form.content }}
+                    <div class="row">
+                        <div class="col-md-10">
+                            {{ answer_form.content.errors }}
+                        </div>
+                        <div class="col-md-2" id="answer_footer">
+                            <button class="btn btn-success" id="answer_button" type="submit">Answer!</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 {%  endblock %}
 

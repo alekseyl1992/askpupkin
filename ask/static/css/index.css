@@ -106,7 +106,7 @@
     padding: 4px;
 }
 
-#id_content {
+#id_content, #id_answer_content {
     resize: vertical;
 }
 
@@ -154,4 +154,18 @@
 
 .nav {
     font-size: medium;
+}
+
+#answer_footer {
+    margin-top: 1%;
+}
+
+#answer_button {
+    padding-right: 40px;
+}
+
+.logged_out_message {
+    padding-top: 20px;
+    font-size: medium;
+    font-weight: bold;
 }

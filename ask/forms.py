@@ -8,23 +8,49 @@ class TagsField(forms.CharField):
         # Return an empty list if no input was given.
         if not value:
             return []
-        return value.split(', ')
+        tags = value.split(',')
+
+        cleaned_tags = []
+
+        for tag in tags:
+            tag = str(tag).strip()
+            if tag != '':
+                if tag[-1] != ',':
+                    cleaned_tags.append(tag)
+                else:
+                    cleaned_tags.append(tag[0:-1])
+
+        return cleaned_tags
 
     def validate(self, value):
         # Use the parent's handling of required fields, etc.
         super(TagsField, self).validate(value)
 
-        if len(value) >= 3:
+        for tag in value:
+            print tag
+
+        if len(value) > 3:
             raise forms.ValidationError("Should be 0-3 tags in here")
 
 
 class QuestionForm(forms.Form):
     title = forms.CharField(max_length=100, widget=TextInput(attrs={
-                            'class': 'form-control',
-                            'placeholder': 'What\'s your problem?'}))
+        'class': 'form-control',
+        'placeholder': 'What\'s your problem?'
+    }))
     content = forms.CharField(max_length=2048, widget=Textarea(attrs={
-                              'class': 'form-control',
-                              'placeholder': 'Place detailed information here...'}))
+        'class': 'form-control',
+        'placeholder': 'Place detailed information here...'
+    }))
     tags = TagsField(required=False, widget=TextInput( attrs={
-                    'class': 'form-control',
-                    'placeholder': 'tag1, tag2, tag3'}))
+        'class': 'form-control',
+        'placeholder': 'tag1, tag2, tag3'
+    }))
+
+
+class AnswerForm(forms.Form):
+    content = forms.CharField(max_length=1024, widget=Textarea(attrs={
+        'id': 'id_answer_content',
+        'class': 'form-control',
+        'placeholder': 'Put your answer here...'
+    }))

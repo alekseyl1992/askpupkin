@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
+    {% if request.path == '/logout/' %}
+    <meta http-equiv="refresh" content="3; url=/">
+    {% endif %}
 </head>
 <body>
     <header>
@@ -17,8 +20,11 @@
                 <h2>Be smart - Ask Pupkin</h2>
             </div>
             <div class="col-md-2" id="headerRight">
-                <span><a href="/user/?name=ask_user">ask_user</a></span>
-                <span id="logoutLink"><a href="#">logout</a></span>
+                {% if user.is_authenticated %}
+                Welcome, <a href="/user/?name={{ user.username }}">{{ user.username }}</a> (<a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>)
+                {% else %}
+                <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">login</a>
+                {% endif %}
             </div>
         </div>
 
@@ -26,9 +32,11 @@
             <div class="col-md-9" id="leftCol">
                 <ul class="nav nav-tabs" id="tabs">
                     {% block tabs %}{% endblock %}
+                    {% if user.is_authenticated %}
                     <span id="ask" class="pull-right">
                         <a data-toggle="modal" href="#myModal" id="askLink">ASK!</a>
                     </span>
+                    {% endif %}
                 </ul>
 
                 {% if page == 'user' %}
@@ -143,6 +151,12 @@
     <script>
         jQuery(document).ready(function($) {
             $('#myModal').modal()
+        });
+    </script>
+    {% elif answer_form_failed == True %}
+    <script>
+        jQuery(document).ready(function($) {
+            window.location += '#answerForm';
         });
     </script>
     {% endif %}

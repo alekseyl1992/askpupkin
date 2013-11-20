@@ -11,6 +11,10 @@
     <li><a href="/">New</a></li>
     <li><a href="/popular/">Popular</a></li>
     <li class="active"><a>Tag: {{ tag }} ({{ questions_count }})</a></li>
+    {% elif page == 'search' %}
+    <li><a href="/">New</a></li>
+    <li><a href="/popular/">Popular</a></li>
+    <li class="active"><a>Search: {{ search }} ({{ results_count }})</a></li>
     {% endif %}
 {% endblock %}
 

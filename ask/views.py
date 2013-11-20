@@ -3,6 +3,8 @@ from queries import *
 from django.shortcuts import *
 import math
 from ask.forms import *
+from django.shortcuts import *
+
 
 def get_page_id(request):
     page_id_str = request.GET.get('page')
@@ -39,33 +41,25 @@ def get_paginator_range(objects_count, objects_per_page, page_id):
     return range(page_left, page_right + 1), pages_count
 
 
-def get_randomized_tags():
-    popular_tags = get_popular_tags()
-
-    max_count = popular_tags[0].quest_count
-    min_count = popular_tags[len(popular_tags)-1].quest_count
-    count_dif = max_count - min_count
-    weight_count = 5
-
-    popular_tags_list = list(popular_tags)
-    random.shuffle(popular_tags_list)
-
-    for tag in popular_tags:
-        tag.weight = tag.quest_count % count_dif * weight_count / count_dif + 1
-
-    return popular_tags_list
-
-
-def index(request, page):
+def question_form_view(request):
     question_form_failed = False
+    question_form_success = False
     if request.method == 'POST':
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
-            return HttpResponseRedirect('/thanks/')
+            question_form_success = True
         else:
             question_form_failed = True
     else:
         question_form = QuestionForm()
+
+    return question_form, question_form_failed, question_form_success
+
+
+def index(request, page):
+    question_form, question_form_failed, success = question_form_view(request)
+    if success is True:
+        return HttpResponseRedirect('/thanks/')
 
     page_id = get_page_id(request)
 
@@ -76,10 +70,6 @@ def index(request, page):
         questions = get_popular_questions((page_id-1)*questions_per_page, questions_per_page)
     else:
         questions = get_questions((page_id-1)*questions_per_page, questions_per_page)
-
-    last_registered = get_last_registered_users()
-
-    popular_tags_list = get_randomized_tags()
 
     #cut of one line of content
     for quest in questions:
@@ -93,9 +83,6 @@ def index(request, page):
 
     return render(request, 'questions.html',
                   {'questions': questions,
-                   'last_registered_left': last_registered[0:len(last_registered)/2],
-                   'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
-                   'popular_tags': popular_tags_list,
                    'page': page,
                    'page_id': page_id,
                    'page_range': paginator_range,
@@ -114,16 +101,30 @@ def index_popular(request):
 
 
 def question(request):
+    question_form, question_form_failed, success = question_form_view(request)
+    if success is True:
+        return HttpResponseRedirect('/thanks/')
+
+    answer_form_failed = False
+    if request.method == 'POST':
+        answer_form = AnswerForm(request.POST)
+        if answer_form.is_valid():
+            return HttpResponseRedirect('/thanks/')
+        else:
+            answer_form_failed = True
+    else:
+        answer_form = AnswerForm()
+
     question_id_str = request.GET.get('q')
 
     try:
         question_id = int(question_id_str)
-    except ValueError:
-        return Http404
+    except (ValueError, TypeError):
+        raise Http404
 
     page_id = get_page_id(request)
 
-    quest = get_question(question_id)
+    quest = get_object_or_404(Question, id=question_id)
 
     answers_per_page = 30
     answers = get_answers(question_id, (page_id-1)*answers_per_page, answers_per_page)
@@ -132,27 +133,31 @@ def question(request):
 
     paginator_range, pages_count = get_paginator_range(answers_count, answers_per_page, page_id)
 
-    last_registered = get_last_registered_users()
-    popular_tags_list = get_randomized_tags()
-
     return render(request, 'answers.html',
-              {'question': quest,
-               'answers': answers,
-               'last_registered_left': last_registered[0:len(last_registered)/2],
-               'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
-               'popular_tags': popular_tags_list,
-               'page': 'question',
-               'page_id': page_id,
-               'page_range': paginator_range,
-               'pages_count': pages_count}
-              )
+                    {'question': quest,
+                     'answers': answers,
+                     'page': 'question',
+                     'page_id': page_id,
+                     'page_range': paginator_range,
+                     'pages_count': pages_count,
+                     'answer_form': answer_form,
+                     'answer_form_failed': answer_form_failed,
+                     'question_form': question_form,
+                     'question_form_failed': question_form_failed,
+                    })
 
 
 def tag(request):
+    question_form, question_form_failed, success = question_form_view(request)
+    if success is True:
+        return HttpResponseRedirect('/thanks/')
+
     try:
         tag = request.GET['t']
     except MultiValueDictKeyError:
-        return Http404
+        raise Http404
+
+    get_object_or_404(Tag, name__exact=tag)
 
     page_id = get_page_id(request)
 
@@ -162,10 +167,6 @@ def tag(request):
     questions_count = get_tag_question_count(tag)
 
     paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
-
-    last_registered = get_last_registered_users()
-
-    popular_tags_list = get_randomized_tags()
 
     #cut of one line of content
     for quest in questions:
@@ -180,18 +181,65 @@ def tag(request):
     return render(request, 'questions.html',
                   {'questions': questions,
                    'questions_count': questions_count,
-                   'last_registered_left': last_registered[0:len(last_registered)/2],
-                   'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
-                   'popular_tags': popular_tags_list,
                    'page': 'tag',
                    'page_id': page_id,
                    'page_range': paginator_range,
                    'pages_count': pages_count,
-                   'tag': tag}
-                  )
+                   'tag': tag,
+                   'question_form': question_form,
+                   'question_form_failed': question_form_failed
+                  })
+
+
+def search(request):
+    question_form, question_form_failed, success = question_form_view(request)
+    if success is True:
+        return HttpResponseRedirect('/thanks/')
+
+    try:
+        query = request.GET['q']
+    except MultiValueDictKeyError:
+        raise Http404
+
+    questions = search_questions_by_title(query)
+
+    page_id = get_page_id(request)
+
+    questions_per_page = 20
+
+    questions = search_questions_by_tag(tag, (page_id-1)*questions_per_page, questions_per_page)
+    questions_count = get_tag_question_count(tag)
+
+    paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
+
+    #cut of one line of content
+    for quest in questions:
+        quest.short_content = quest.content[:85]
+        last_space_id = quest.short_content.rfind(' ')
+
+        if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
+            last_space_id -= 1
+
+        quest.short_content = quest.short_content[:last_space_id] + '...'
+
+    return render(request, 'questions.html',
+                  {'questions': questions,
+                   'questions_count': questions_count,
+                   'page': 'tag',
+                   'page_id': page_id,
+                   'page_range': paginator_range,
+                   'pages_count': pages_count,
+                   'tag': tag,
+                   'question_form': question_form,
+                   'question_form_failed': question_form_failed
+                   })
 
 
 def user(request):
+    question_form, question_form_failed, success = question_form_view(request)
+    if success is True:
+        return HttpResponseRedirect('/thanks/')
+
     #get user name
     try:
         name = request.GET['name']
@@ -204,11 +252,7 @@ def user(request):
     except MultiValueDictKeyError:
         tab = 'info'
 
-    user = User.objects.get(username__exact=name)
-
-    last_registered = get_last_registered_users()
-
-    popular_tags_list = get_randomized_tags()
+    user = get_object_or_404(User, username__exact=name)
 
     asked_questions_count = get_asked_questions_count(user)
     answered_questions_count = get_answered_questions_count(user)
@@ -221,9 +265,8 @@ def user(request):
                         'user': user,
                         'asked_questions_count': asked_questions_count,
                         'answered_questions_count': answered_questions_count,
-                        'last_registered_left': last_registered[0:len(last_registered)/2],
-                        'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
-                        'popular_tags': popular_tags_list,
+                        'question_form': question_form,
+                        'question_form_failed': question_form_failed
                     })
 
     elif tab == 'asked':
@@ -242,23 +285,21 @@ def user(request):
         page_id = get_page_id(request)
 
         questions = get_answered_questions(user, (page_id-1)*questions_per_page, questions_per_page)
-        print questions
         questions_count = answered_questions_count
 
         paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
 
     return render(request, 'user.html',
-              {'tab': tab,
-               'user': user,
-               'questions': questions,
-               'questions_count': questions_count,
-               'asked_questions_count': asked_questions_count,
-               'answered_questions_count': answered_questions_count,
-               'last_registered_left': last_registered[0:len(last_registered)/2],
-               'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
-               'popular_tags': popular_tags_list,
-               'page': 'user',
-               'page_id': page_id,
-               'page_range': paginator_range,
-               'pages_count': pages_count}
-              )
+                  {'tab': tab,
+                   'user': user,
+                   'questions': questions,
+                   'questions_count': questions_count,
+                   'asked_questions_count': asked_questions_count,
+                   'answered_questions_count': answered_questions_count,
+                   'page': 'user',
+                   'page_id': page_id,
+                   'page_range': paginator_range,
+                   'pages_count': pages_count,
+                   'question_form': question_form,
+                   'question_form_failed': question_form_failed
+                   })
