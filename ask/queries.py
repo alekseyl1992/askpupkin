@@ -70,15 +70,61 @@ def get_asked_questions_count(user):
 
 
 def get_answered_questions(user, offset, count=20):
-    answers = Answer.objects.filter(author=user).order_by('question').distinct()[offset:offset+count]
+    answers = Answer.objects.filter(author=user).values('question').distinct()[offset:offset+count]
     questions = []
 
     for ans in answers:
-        questions.append(ans.question)
+        questions.append(Question.objects.get(id=ans['question']))
 
     return questions
 
 
 def get_answered_questions_count(user):
-    return Answer.objects.filter(author=user).order_by('question').distinct().count()
+    return Answer.objects.filter(author=user).values('question').count()
 
+
+def change_rating(entry, user, direction):
+    value = 0
+
+    if direction == 'up':
+        value = 1
+    elif direction == 'down':
+        value = -1
+
+    ok = False
+
+    if type(entry) == Question:
+        try:
+            vote_entry = QuestionVote.objects.get(user=user, question=entry)
+            if vote_entry.value != value:
+                entry.rating += -vote_entry.value
+                vote_entry.delete()
+                ok = True
+        except QuestionVote.DoesNotExist:
+            ok = True
+
+        if ok:
+            vote_entry = QuestionVote(user=user, question=entry, value=value)
+            vote_entry.save()
+
+    elif type(entry) == Answer:
+        ok = False
+
+        try:
+            vote_entry = AnswerVote.objects.get(user=user, answer=entry)
+            if vote_entry.value != value:
+                entry.rating += -vote_entry.value
+                vote_entry.delete()
+                ok = True
+        except AnswerVote.DoesNotExist:
+            ok = True
+
+        if ok:
+            vote_entry = AnswerVote(user=user, answer=entry, value=value)
+            vote_entry.save()
+
+    if ok:
+        entry.rating += value
+        entry.save()
+
+    return ok

@@ -1,11 +1,11 @@
- <div class="thumbnail question">
+ <div class="thumbnail question" data-id="{{ question.id }}">
     <div class="row">
         <div class="col-md-1 rating">
-            <a href="#" class="ratingArrow">
+            <a href="#" class="ratingArrow rating_up">
                 <div class="glyphicon glyphicon-chevron-up"></div>
             </a>
-            <div><b>{{ question.rating }}</b></div>
-            <a href="#" class="ratingArrow">
+            <div><b class="rating_value">{{ question.rating }}</b></div>
+            <a href="#" class="ratingArrow rating_down">
                 <div class="glyphicon glyphicon-chevron-down"></div>
             </a>
         </div>

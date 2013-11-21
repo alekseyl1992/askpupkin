@@ -11,7 +11,9 @@ urlpatterns = patterns('ask.views',
     url(r'^question/$', 'question', name='question'),
     url(r'^tag/$', 'tag', name='tag'),
     url(r'^user/$', 'user', name='user'),
-    url(r'search/$', 'search', name='search'),
+    url(r'^search/$', 'search', name='search'),
+    url(r'^rating/$', 'rating', name='rating'),
+    url(r'^register/$', 'register', name='register'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

@@ -3,23 +3,23 @@
 {% block tabs %}
     <li><a href="/">New</a></li>
     <li><a href="/popular/">Popular</a></li>
-    <li class="active"><a>User: {{ user.username }}</a></li>
+    <li class="active"><a>User: {{ user_info.username }}</a></li>
 {% endblock %}
 
 {% block usertabs %}
     <ul class="nav nav-tabs nav-justified" id="tabs">
         {% if tab == 'info' %}
-            <li class="active"><a href="/user/?tab=info&name={{ user.username }}">Info</a></li>
-            <li><a href="/user/?tab=asked&name={{ user.username }}">Asked questions ({{ asked_questions_count }})</a></li>
-            <li><a href="/user/?tab=answered&name={{ user.username }}">Answered questions ({{ answered_questions_count }})</a></li>
+            <li class="active"><a href="/user/?tab=info&name={{ user_info.username }}">Info</a></li>
+            <li><a href="/user/?tab=asked&name={{ user_info.username }}">Asked questions ({{ asked_questions_count }})</a></li>
+            <li><a href="/user/?tab=answered&name={{ user_info.username }}">Answered questions ({{ answered_questions_count }})</a></li>
         {% elif tab == 'asked' %}
-            <li><a href="/user/?tab=info&name={{ user.username }}">Info</a></li>
-            <li class="active"><a href="/user/?tab=asked&name={{ user.username }}">Asked questions ({{ asked_questions_count }})</a></li>
-            <li><a href="/user/?tab=answered&name={{ user.username }}">Answered questions ({{ answered_questions_count }})</a></li>
+            <li><a href="/user/?tab=info&name={{ user_info.username }}">Info</a></li>
+            <li class="active"><a href="/user/?tab=asked&name={{ user_info.username }}">Asked questions ({{ asked_questions_count }})</a></li>
+            <li><a href="/user/?tab=answered&name={{ user_info.username }}">Answered questions ({{ answered_questions_count }})</a></li>
         {% elif tab == 'answered' %}
-            <li><a href="/user/?tab=info&name={{ user.username }}">Info</a></li>
-            <li><a href="/user/?tab=asked&name={{ user.username }}">Asked questions ({{ asked_questions_count }})</a></li>
-            <li class="active"><a href="/user/?tab=answered&name={{ user.username }}">Answered questions ({{ answered_questions_count }})</a></li>
+            <li><a href="/user/?tab=info&name={{ user_info.username }}">Info</a></li>
+            <li><a href="/user/?tab=asked&name={{ user_info.username }}">Asked questions ({{ asked_questions_count }})</a></li>
+            <li class="active"><a href="/user/?tab=answered&name={{ user_info.username }}">Answered questions ({{ answered_questions_count }})</a></li>
         {% endif %}
     </ul>
 {% endblock %}
@@ -30,23 +30,23 @@
             <table class="table table-striped" id="user_info_table">
                 <tr>
                     <td>Username: </td>
-                    <td>{{ user.username }}</td>
+                    <td>{{ user_info.username }}</td>
                 </tr>
                 <tr>
                     <td>Full name: </td>
-                    <td>{{ user.get_full_name }}</td>
+                    <td>{{ user_info.get_full_name }}</td>
                 </tr>
                 <tr>
                     <td>Email: </td>
-                    <td>{{ user.email }}</td>
+                    <td>{{ user_info.email }}</td>
                 </tr>
                 <tr>
                     <td>Last login: </td>
-                    <td>{{ user.last_login }}</td>
+                    <td>{{ user_info.last_login }}</td>
                 </tr>
                 <tr>
                     <td>Date registered: </td>
-                    <td>{{ user.date_joined }}</td>
+                    <td>{{ user_info.date_joined }}</td>
                 </tr>
             </table>
         </div>

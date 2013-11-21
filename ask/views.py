@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.utils.datastructures import MultiValueDictKeyError
 from queries import *
 from django.shortcuts import *
@@ -9,6 +10,10 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.exceptions import *
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 def get_page_id(request):
     page_id_str = request.GET.get('page')
@@ -301,17 +306,17 @@ def user(request):
     except MultiValueDictKeyError:
         tab = 'info'
 
-    user = get_object_or_404(User, username__exact=name)
+    user_info = get_object_or_404(User, username__exact=name)
 
-    asked_questions_count = get_asked_questions_count(user)
-    answered_questions_count = get_answered_questions_count(user)
+    asked_questions_count = get_asked_questions_count(user_info)
+    answered_questions_count = get_answered_questions_count(user_info)
 
     if tab == 'info':
         return render(request, 'user.html',
                     {
                         'page': 'user',
                         'tab': tab,
-                        'user': user,
+                        'user_info': user_info,
                         'asked_questions_count': asked_questions_count,
                         'answered_questions_count': answered_questions_count,
                         'question_form': question_form,
@@ -323,7 +328,7 @@ def user(request):
 
         page_id = get_page_id(request)
 
-        questions = get_asked_questions(user, (page_id-1)*questions_per_page, questions_per_page)
+        questions = get_asked_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
         questions_count = asked_questions_count
 
         paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
@@ -333,14 +338,14 @@ def user(request):
 
         page_id = get_page_id(request)
 
-        questions = get_answered_questions(user, (page_id-1)*questions_per_page, questions_per_page)
+        questions = get_answered_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
         questions_count = answered_questions_count
 
         paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
 
     return render(request, 'user.html',
                   {'tab': tab,
-                   'user': user,
+                   'user': user_info,
                    'questions': questions,
                    'questions_count': questions_count,
                    'asked_questions_count': asked_questions_count,
@@ -352,3 +357,53 @@ def user(request):
                    'question_form': question_form,
                    'question_form_failed': question_form_failed
                    })
+
+
+def rating(request):
+    try:
+        id = int(request.POST['id'])
+        type = request.POST['type']
+        direction = request.POST['direction']
+    except (MultiValueDictKeyError, ValueError):
+        raise Http404
+
+    if type == 'q':
+        entry = get_object_or_404(Question, id=id)
+    elif type == 'a':
+        entry = get_object_or_404(Answer, id=id)
+    else:
+        raise Http404
+
+    if request.user.is_authenticated():
+        if not change_rating(entry, request.user, direction):
+            status = "You can't vote twice."
+        else:
+            status = "ok"
+    else:
+        status = "You should login to make a vote."
+
+    response_data = {
+        'status': status,
+        'rating': entry.rating
+    }
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+def register(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            new_user = authenticate(username=new_user.username, password=request.POST['password1'])
+
+            if new_user is not None:
+                login(request, new_user)
+                return HttpResponseRedirect("/")
+            else:
+                raise Http404
+    else:
+        form = RegistrationForm()
+    return render(request, "registration/register.html", {
+        'form': form,
+    })
