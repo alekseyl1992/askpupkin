@@ -90,7 +90,8 @@
         </div>
         {% else %}
             <div class="not_logged_to_answer">
-                Please <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">log in</a> to add your answer.
+                Please <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">log in</a> or
+                <a href="/register/?next={{ request.get_full_path }}">register</a> to add your answer.
             </div>
         {% endif %}
     </div>

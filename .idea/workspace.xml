@@ -32,50 +32,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ask/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="397" column="45" selection-start="12802" selection-end="12802" vertical-scroll-proportion="0.45259392" vertical-offset="6893" max-vertical-offset="7452">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="4" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="2574">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ask/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="24" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="1404">
-              <folding>
-                <element signature="e#0#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="register.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="298" selection-end="298" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="396">
+            <state line="23" column="37" selection-start="736" selection-end="736" vertical-scroll-proportion="-1.074074" vertical-offset="385" max-vertical-offset="1026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="answers.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/answers.html">
+      <file leaf-file-name="index.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="16" selection-start="3369" selection-end="3385" vertical-scroll-proportion="-5.3333335" vertical-offset="1188" max-vertical-offset="2124">
+            <state line="174" column="20" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.0" vertical-offset="2626" max-vertical-offset="3258">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="21" selection-start="378" selection-end="393" vertical-scroll-proportion="-8.0" vertical-offset="54" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -84,43 +62,45 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="33" selection-start="6613" selection-end="6613" vertical-scroll-proportion="-5.9259257" vertical-offset="2522" max-vertical-offset="3078">
+            <state line="147" column="16" selection-start="6608" selection-end="6608" vertical-scroll-proportion="-14.0" vertical-offset="2268" max-vertical-offset="3132">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="queries.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ask/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="326" column="31" selection-start="10452" selection-end="10452" vertical-scroll-proportion="0.0" vertical-offset="5488" max-vertical-offset="7704">
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="queries.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ask/queries.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="177" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2430">
+            <state line="82" column="75" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.64400715" vertical-offset="1116" max-vertical-offset="2430">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ask/models.py">
+      <file leaf-file-name="user.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="6" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="720">
+            <state line="14" column="18" selection-start="695" selection-end="695" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="1746">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ask/static/js/index.js">
+      <file leaf-file-name="answers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/answers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="36" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1869">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+            <state line="85" column="30" selection-start="4002" selection-end="4002" vertical-scroll-proportion="-6.5925927" vertical-offset="1352" max-vertical-offset="2142">
               <folding />
             </state>
           </provider>
@@ -142,16 +122,16 @@
         <option value="$PROJECT_DIR$/templates/registration/logged_out.html" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/user.html" />
-        <option value="$PROJECT_DIR$/ask/static/css/index.css" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/question.html" />
-        <option value="$PROJECT_DIR$/templates/answers.html" />
         <option value="$PROJECT_DIR$/ask/static/js/index.js" />
-        <option value="$PROJECT_DIR$/ask/queries.py" />
         <option value="$PROJECT_DIR$/askpupkin/urls.py" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html" />
         <option value="$PROJECT_DIR$/ask/forms.py" />
+        <option value="$PROJECT_DIR$/templates/answers.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/ask/static/css/index.css" />
+        <option value="$PROJECT_DIR$/templates/registration/register.html" />
         <option value="$PROJECT_DIR$/ask/views.py" />
+        <option value="$PROJECT_DIR$/ask/queries.py" />
       </list>
     </option>
   </component>
@@ -639,7 +619,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32828686" sideWeight="0.672" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.263745" sideWeight="0.6784" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26294822" sideWeight="0.6784" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5003984" order="8" side_tool="true" content_ui="tabs" />
@@ -687,123 +667,105 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2376">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="225" selection-end="225" vertical-scroll-proportion="20.666666" vertical-offset="702" max-vertical-offset="1746">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="24" selection-start="599" selection-end="599" vertical-scroll-proportion="-13.666667" vertical-offset="459" max-vertical-offset="3168">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2376" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="280" selection-end="301" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
+        <state line="6" column="19" selection-start="280" selection-end="301" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="576" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/questions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="32" selection-start="761" selection-end="761" vertical-scroll-proportion="-10.666667" vertical-offset="108" max-vertical-offset="1044">
-          <folding />
-        </state>
+        <state line="22" column="32" selection-start="761" selection-end="761" vertical-scroll-proportion="-10.666667" vertical-offset="108" max-vertical-offset="1044" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="36" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1869">
-          <folding />
-        </state>
+        <state line="44" column="36" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1869" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="6" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="720">
-          <folding />
-        </state>
+        <state line="32" column="6" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
+        <state line="28" column="0" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="24" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="1404" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="4" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="2574" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/answers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="16" selection-start="3369" selection-end="3385" vertical-scroll-proportion="-5.3333335" vertical-offset="1188" max-vertical-offset="2124">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="298" selection-end="298" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/queries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="177" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2430">
+        <state line="85" column="30" selection-start="4002" selection-end="4002" vertical-scroll-proportion="-6.5925927" vertical-offset="1352" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="33" selection-start="6613" selection-end="6613" vertical-scroll-proportion="-5.9259257" vertical-offset="2522" max-vertical-offset="3078">
+        <state line="147" column="16" selection-start="6608" selection-end="6608" vertical-scroll-proportion="-14.0" vertical-offset="2268" max-vertical-offset="3132">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ask/forms.py">
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="1404">
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
+        <state line="15" column="21" selection-start="378" selection-end="393" vertical-scroll-proportion="-8.0" vertical-offset="54" max-vertical-offset="810">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="4" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="2574">
+        <state line="174" column="20" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.0" vertical-offset="2626" max-vertical-offset="3258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="37" selection-start="736" selection-end="736" vertical-scroll-proportion="-1.074074" vertical-offset="385" max-vertical-offset="1026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="18" selection-start="695" selection-end="695" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="1746">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="397" column="45" selection-start="12802" selection-end="12802" vertical-scroll-proportion="0.45259392" vertical-offset="6893" max-vertical-offset="7452">
+        <state line="326" column="31" selection-start="10452" selection-end="10452" vertical-scroll-proportion="0.0" vertical-offset="5488" max-vertical-offset="7704">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/queries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="75" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.64400715" vertical-offset="1116" max-vertical-offset="2430">
+          <folding />
         </state>
       </provider>
     </entry>

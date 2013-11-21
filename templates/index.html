@@ -23,7 +23,8 @@
                 {% if user.is_authenticated %}
                 Welcome, <a href="/user/?name={{ user.username }}">{{ user.username }}</a> (<a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>)
                 {% else %}
-                <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">login</a>
+                <a href="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}">login</a> or
+                <a href="/register/?next={{ request.get_full_path }}">register</a>
                 {% endif %}
             </div>
         </div>
@@ -102,6 +103,7 @@
             {% block paginator %}{% endblock %}
         </footer>
 
+        {% if user.is_authenticated %}
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -143,6 +145,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 
     <script src="/static/js/jquery.js"></script>

@@ -80,7 +80,7 @@ def get_answered_questions(user, offset, count=20):
 
 
 def get_answered_questions_count(user):
-    return Answer.objects.filter(author=user).values('question').count()
+    return Answer.objects.filter(author=user).values('question').distinct().count()
 
 
 def change_rating(entry, user, direction):

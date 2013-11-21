@@ -345,7 +345,7 @@ def user(request):
 
     return render(request, 'user.html',
                   {'tab': tab,
-                   'user': user_info,
+                   'user_info': user_info,
                    'questions': questions,
                    'questions_count': questions_count,
                    'asked_questions_count': asked_questions_count,
@@ -391,6 +391,8 @@ def rating(request):
 
 
 def register(request):
+    next = "/"
+
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -399,11 +401,23 @@ def register(request):
 
             if new_user is not None:
                 login(request, new_user)
-                return HttpResponseRedirect("/")
+                try:
+                    next = request.POST['next']
+                except MultiValueDictKeyError:
+                    next = '/'
+
+                return HttpResponseRedirect(next)
             else:
                 raise Http404
     else:
+        try:
+            next = request.GET['next']
+        except MultiValueDictKeyError:
+            next = '/'
+
         form = RegistrationForm()
+
     return render(request, "registration/register.html", {
         'form': form,
+        'next': next
     })
