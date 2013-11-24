@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from djangosphinx.models import SphinxSearch
 
 
 class Tag(models.Model):
@@ -13,6 +14,13 @@ class Question(models.Model):
     date = models.DateTimeField()
     tags = models.ManyToManyField(Tag)
     rating = models.IntegerField()
+    search = SphinxSearch(
+        index='questions',
+        weights={
+            'title': 100,
+            'content': 40,
+        }
+    )
 
 
 class Answer(models.Model):
@@ -22,6 +30,12 @@ class Answer(models.Model):
     date = models.DateTimeField()
     right = models.BooleanField()
     rating = models.IntegerField()
+    search = SphinxSearch(
+        index='answers',
+        weights={
+            'content': 100,
+        }
+    )
 
 
 class QuestionVote(models.Model):

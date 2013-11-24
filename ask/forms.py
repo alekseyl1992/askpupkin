@@ -18,9 +18,10 @@ class TagsField(forms.CharField):
             tag = str(tag).strip()
             if tag != '':
                 if tag[-1] != ',':
+                    tag = tag[0:-1]
+
+                if not cleaned_tags.__contains__(tag):
                     cleaned_tags.append(tag)
-                else:
-                    cleaned_tags.append(tag[0:-1])
 
         return cleaned_tags
 

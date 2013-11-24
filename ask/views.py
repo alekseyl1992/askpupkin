@@ -28,8 +28,14 @@ def get_page_id(request):
 
 
 def get_paginator_range(objects_count, objects_per_page, page_id):
+    if page_id <= 0:
+        raise Http404
+
     page_left = 1
     page_right = 1
+
+    if objects_per_page == 0:
+        raise Http404
 
     pages_count = int(math.ceil(float(objects_count)/objects_per_page))
 
@@ -48,6 +54,22 @@ def get_paginator_range(objects_count, objects_per_page, page_id):
         page_right = pages_count
 
     return range(page_left, page_right + 1), pages_count
+
+
+def annotate_with_shorts(entries):
+    for entry in entries:
+        if len(entry.content) > 85:
+            entry.short_content = entry.content[:85]
+            last_space_id = entry.short_content.rfind(' ')
+
+            if last_space_id != -1 and entry.short_content[last_space_id - 1] in [',', '.', '?']:
+                last_space_id -= 1
+            else:
+                last_space_id = len(entry.short_content) - 1
+
+            entry.short_content = entry.short_content[:last_space_id] + '...'
+        else:
+            entry.short_content = entry.content
 
 
 def add_question(request, question_form):
@@ -77,7 +99,7 @@ def add_question(request, question_form):
 def question_form_view(request):
     question_form_failed = False
     question_id = None
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST.get("type") == "question":
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
             #save new question to DB
@@ -96,7 +118,7 @@ def question_form_view(request):
 def index(request, page):
     question_form, question_form_failed, question_id = question_form_view(request)
     if question_id is not None:
-        return HttpResponseRedirect('/question/q=' + question_id)
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
 
     page_id = get_page_id(request)
 
@@ -109,19 +131,7 @@ def index(request, page):
         questions = get_questions((page_id-1)*questions_per_page, questions_per_page)
 
     #cut of one line of content
-    for quest in questions:
-        if len(quest.content) > 85:
-            quest.short_content = quest.content[:85]
-            last_space_id = quest.short_content.rfind(' ')
-
-            if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
-                last_space_id -= 1
-            else:
-                last_space_id = len(quest.short_content) - 1
-
-            quest.short_content = quest.short_content[:last_space_id] + '...'
-        else:
-            quest.short_content = quest.content
+    annotate_with_shorts(questions)
 
     return render(request, 'questions.html',
                   {'questions': questions,
@@ -142,7 +152,7 @@ def index_popular(request):
     return index(request, 'popular')
 
 
-def question(request):
+def answers(request):
     question_form, question_form_failed, question_id = question_form_view(request)
     if question_id is not None:
         return HttpResponseRedirect('/question/?q=' + str(question_id))
@@ -155,7 +165,7 @@ def question(request):
         raise Http404
 
     answer_form_failed = False
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST.get("type") == "answer":
         answer_form = AnswerForm(request.POST)
         if answer_form.is_valid():
             #add answer to db
@@ -181,30 +191,29 @@ def question(request):
     quest = get_object_or_404(Question, id=question_id)
 
     answers_per_page = 30
-    answers = get_answers(question_id, (page_id-1)*answers_per_page, answers_per_page)
-
     answers_count = get_answers_count(question_id)
 
     paginator_range, pages_count = get_paginator_range(answers_count, answers_per_page, page_id)
+    answers = get_answers(question_id, (page_id-1)*answers_per_page, answers_per_page)
 
     return render(request, 'answers.html',
-                    {'question': quest,
-                     'answers': answers,
-                     'page': 'question',
-                     'page_id': page_id,
-                     'page_range': paginator_range,
-                     'pages_count': pages_count,
-                     'answer_form': answer_form,
-                     'answer_form_failed': answer_form_failed,
-                     'question_form': question_form,
-                     'question_form_failed': question_form_failed,
-                    })
+                  {'question': quest,
+                   'answers': answers,
+                   'page': 'answers',
+                   'page_id': page_id,
+                   'page_range': paginator_range,
+                   'pages_count': pages_count,
+                   'answer_form': answer_form,
+                   'answer_form_failed': answer_form_failed,
+                   'question_form': question_form,
+                   'question_form_failed': question_form_failed,
+                   })
 
 
 def tag(request):
-    question_form, question_form_failed, success = question_form_view(request)
-    if success is True:
-        return HttpResponseRedirect('/thanks/')
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
 
     try:
         tag = request.GET['t']
@@ -246,53 +255,60 @@ def tag(request):
 
 
 def search(request):
-    question_form, question_form_failed, success = question_form_view(request)
-    if success is True:
-        return HttpResponseRedirect('/thanks/')
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
 
     try:
-        query = request.GET['q']
+        query = request.GET['query']
     except MultiValueDictKeyError:
         raise Http404
 
-    questions = search_questions_by_title(query)
+    try:
+        tab = request.GET['tab']
+    except MultiValueDictKeyError:
+        tab = 'questions'
 
     page_id = get_page_id(request)
+    entries_per_page = 20
 
-    questions_per_page = 20
+    if tab == 'questions':
+        entries_count = search_questions_count(query)
+        entries = search_questions(query, (page_id-1)*entries_per_page, entries_per_page)
+        questions_count = entries_count
+        answers_count = search_answers_count(query)
+    else:
+        entries_count = search_answers_count(query)
+        entries = search_answers(query, (page_id-1)*entries_per_page, entries_per_page)
+        answers_count = entries_count
+        questions_count = search_questions_count(query)
 
-    questions = search_questions_by_tag(tag, (page_id-1)*questions_per_page, questions_per_page)
-    questions_count = get_tag_question_count(tag)
 
-    paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
+    paginator_range, pages_count = get_paginator_range(entries_count, entries_per_page, page_id)
 
     #cut of one line of content
-    for quest in questions:
-        quest.short_content = quest.content[:85]
-        last_space_id = quest.short_content.rfind(' ')
+    annotate_with_shorts(entries)
 
-        if last_space_id != -1 and quest.short_content[last_space_id - 1] in [',', '.', '?']:
-            last_space_id -= 1
-
-        quest.short_content = quest.short_content[:last_space_id] + '...'
-
-    return render(request, 'questions.html',
-                  {'questions': questions,
+    return render(request, 'search.html',
+                  {'entries': entries,
+                   'entries_count': entries_count,
+                   'answers_count': answers_count,
                    'questions_count': questions_count,
-                   'page': 'tag',
+                   'page': 'search',
                    'page_id': page_id,
+                   'tab': tab,
                    'page_range': paginator_range,
                    'pages_count': pages_count,
-                   'tag': tag,
+                   'query': query,
                    'question_form': question_form,
                    'question_form_failed': question_form_failed
                    })
 
 
 def user(request):
-    question_form, question_form_failed, success = question_form_view(request)
-    if success is True:
-        return HttpResponseRedirect('/thanks/')
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
 
     #get user name
     try:
@@ -328,20 +344,20 @@ def user(request):
 
         page_id = get_page_id(request)
 
-        questions = get_asked_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
         questions_count = asked_questions_count
-
         paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
+
+        questions = get_asked_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
 
     elif tab == 'answered':
         questions_per_page = 20
 
         page_id = get_page_id(request)
 
-        questions = get_answered_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
         questions_count = answered_questions_count
-
         paginator_range, pages_count = get_paginator_range(questions_count, questions_per_page, page_id)
+
+        questions = get_answered_questions(user_info, (page_id-1)*questions_per_page, questions_per_page)
 
     return render(request, 'user.html',
                   {'tab': tab,
@@ -385,6 +401,29 @@ def rating(request):
     response_data = {
         'status': status,
         'rating': entry.rating
+    }
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+
+def mark(request):
+    try:
+        id = int(request.POST['id'])
+    except (MultiValueDictKeyError, ValueError):
+        raise Http404
+
+    entry = get_object_or_404(Answer, id=id)
+
+    if request.user.is_authenticated() and entry.author == request.user:
+        entry.right = not entry.right
+        entry.save()
+        status = "ok"
+    else:
+        status = "You should be logged in to do this."
+
+    response_data = {
+        'status': status,
     }
 
     return HttpResponse(json.dumps(response_data), content_type="application/json")

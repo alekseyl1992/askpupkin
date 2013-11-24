@@ -6,6 +6,9 @@ import random
 def get_randomized_tags():
     popular_tags = queries.get_popular_tags()
 
+    if popular_tags.count() == 0:
+        return []
+
     max_count = popular_tags[0].quest_count
     min_count = popular_tags[len(popular_tags)-1].quest_count
     count_dif = max_count - min_count

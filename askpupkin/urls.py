@@ -8,11 +8,12 @@ urlpatterns = patterns('ask.views',
     url(r'^$', 'index_latest', name='index_latest'),
     url(r'^new/$', 'index_latest', name='index_latest'),
     url(r'^popular/$', 'index_popular', name='index_popular'),
-    url(r'^question/$', 'question', name='question'),
+    url(r'^question/$', 'answers', name='answers'),
     url(r'^tag/$', 'tag', name='tag'),
     url(r'^user/$', 'user', name='user'),
     url(r'^search/$', 'search', name='search'),
     url(r'^rating/$', 'rating', name='rating'),
+    url(r'^mark/$', 'mark', name='mark'),
     url(r'^register/$', 'register', name='register'),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -24,7 +24,7 @@
                         <span class="qheader">{{ question.title }}</span>
                     </div>
                     <div class="questionContent">
-                        {{ question.content }}
+                        {{ question.content|linebreaks }}
                     </div>
                     <div class="questionFooter">
                         <div class="asker_name pull-right"><b>Asked by:</b> <a href="/user/?name={{ question.author.username }}">{{ question.author.username }}</a></div><br>
@@ -42,31 +42,7 @@
         <div class="answers_title">Answers ({{ answers.count }}):</div>
 
         {% for answer in answers %}
-            <div class="thumbnail answer" data-id="{{ answer.id }}">
-                <div class="row">
-                    <div class="col-md-1 rating">
-                        <a href="#" class="ratingArrow rating_up">
-                            <div class="glyphicon glyphicon-chevron-up"></div>
-                        </a>
-                        <div><b class="rating_value">{{ answer.rating }}</b></div>
-                        <a href="#" class="ratingArrow rating_down">
-                            <div class="glyphicon glyphicon-chevron-down"></div>
-                        </a>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="questionContent">
-                            {{ answer.content|linebreaks }}
-                        </div>
-                        <div class="questionFooter">
-                            {%  if answer.right %}
-                            <b>Right!</b>
-                            {% endif %}
-                            <div class="asker_name pull-right"><b>Answered by:</b> <a href="/user/?name={{ answer.author.username }}">{{ answer.author.username }}</a></div><br>
-                            <div class="qdate pull-right">{{ answer.date }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% include 'answer.html' %}
         {% endfor %}
 
         {% if user.is_authenticated %}
@@ -75,7 +51,7 @@
                 {% csrf_token %}
                 {{ answer_form.non_field_errors }}
                 <div class="form-group">
-                    <label for="id_answer_content" class="control-label">Your answer:</label>
+                    <label for="id_answer_content" class="control-label your_answer">Your answer:</label>
                     {{ answer_form.content }}
                     <div class="row">
                         <div class="col-md-10">
@@ -86,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="type" value="answer">
             </form>
         </div>
         {% else %}

@@ -22,6 +22,8 @@
     <div class="thumbnail" id="questions">
         {% for question in questions %}
             {% include "question.html" %}
+            {% empty %}
+            <div class="empty_list">No questions found. :(</div>
         {% endfor %}
     </div>
 {%  endblock %}

@@ -45,13 +45,14 @@ print "Tags added"
 
 user_ids = []
 
-for i in range(0, 1000):
+for i in range(0, 10000):
     username = rn.random_nick(gender='u')
 
     while has_user(username):
         username = rn.random_nick(gender='u') + str(random.randint(10, 999))
 
-    user = User.objects.create_user(username=username, email=re.randomMail(), firstname=rn.random_nick(), lastname=rn.random_nick())
+    user = User.objects.create_user(username=username, email=re.randomMail(),
+                                    first_name=rn.random_nick(gender='u'), last_name=rn.random_nick(gender='u'))
     user.set_password(rw.random_word())
     user.save()
     user_ids.append(user.id)
@@ -60,7 +61,7 @@ print "Users added"
 
 question_ids = []
 
-for i in range(0, 1000):
+for i in range(0, 100000):
     title = rc.get_sentence()
     if len(title) > 100:
         title = title[0:99]
@@ -71,7 +72,12 @@ for i in range(0, 1000):
 
     #generate votes
     up_votes_count = random.randint(0, 99)
-    down_votes_count = random.randint(0, 20)
+
+    # reduce votes count
+    if up_votes_count > 50 and random.randint(0, 1) == 0:
+        up_votes_count /= 3
+
+    down_votes_count = random.randint(0, 10)
 
     quest.rating = up_votes_count - down_votes_count
     quest.save()
@@ -98,7 +104,7 @@ for i in range(0, 1000):
 
 print "Questions added"
 
-for i in range(0, 10000):
+for i in range(0, 1000000):
     answer = Answer(author_id=user_ids[random.randint(0, len(user_ids)-1)],
                     question_id=question_ids[random.randint(0, len(question_ids)-1)],
                     right=random.choice([False, True, False, False, False]),
@@ -107,6 +113,11 @@ for i in range(0, 10000):
 
     #generate votes
     up_votes_count = random.randint(0, 15)
+
+    # reduce votes count
+    if up_votes_count > 10 and random.randint(0, 1) == 0:
+        up_votes_count /= 2
+
     down_votes_count = random.randint(0, 5)
 
     answer.rating = up_votes_count - down_votes_count

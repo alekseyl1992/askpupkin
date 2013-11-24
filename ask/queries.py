@@ -29,12 +29,20 @@ def search_questions_by_tag(tag_name, offset, count=30):
     return Question.objects.filter(tags__name=tag_name)[offset:offset+count]
 
 
-def search_questions_by_title(title, offset, count=30):
-    return Question.objects.filter(title__icontains=title)[offset:offset+count]
+def search_questions(query, offset, count=20):
+    return Question.search.query(query).order_by('-date')[offset:offset+count]
 
 
-def search_questions_by_content(content, offset, count=30):
-    return Question.objects.filter(content__icontains=content)[offset:offset+count]
+def search_answers(query, offset, count=20):
+    return Answer.search.query(query).order_by('-date')[offset:offset+count]
+
+
+def search_questions_count(query):
+    return Question.search.query(query).count()
+
+
+def search_answers_count(query):
+    return Answer.search.query(query).count()
 
 
 def get_popular_tags():

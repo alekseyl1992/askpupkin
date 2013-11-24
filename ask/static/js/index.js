@@ -40,6 +40,41 @@ jQuery(document).ready(function($) {
     });
 
 
+    $('.mark').click(function() {
+        var answer = $(this).closest('.answer');
+
+        if (answer)
+        {
+            $.ajax({
+              type: "POST",
+              url: "/mark/",
+              data: {
+                  id: answer.data('id')
+              }
+            })
+            .done(function( msg )
+            {
+                if(msg['status'] == "ok")
+                {
+                    var mark = answer.find('.mark');
+
+                    if(mark.text() != "Right!")
+                        mark.text("Right!");
+                    else
+                        mark.text("Mark as right");
+                }
+                else
+                    alert(msg['status']);
+            })
+            .fail(function( msg ) {
+                alert(msg);
+            });
+        }
+
+        return false;
+    });
+
+
     //set rating handlers
     $('.ratingArrow').click(function() {
         var entry = $(this).closest('.thumbnail');
@@ -78,7 +113,8 @@ jQuery(document).ready(function($) {
               .fail(function( msg ) {
                     alert(msg);
               });
-            return false;
         }
+
+        return false;
     });
 });

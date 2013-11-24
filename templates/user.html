@@ -54,12 +54,16 @@
         <div class="thumbnail" id="questions">
         {% for question in questions %}
             {% include "question.html" %}
+            {% empty %}
+            <div class="empty_list">No questions asked by {{ user_info.username }} so far.</div>
         {% endfor %}
         </div>
     {% elif tab == 'answered' %}
         <div class="thumbnail" id="questions">
         {% for question in questions %}
             {% include "question.html" %}
+            {% empty %}
+            <div class="empty_list">No questions answered by {{ user_info.username }} so far.</div>
         {% endfor %}
         </div>
     {% endif %}

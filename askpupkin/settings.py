@@ -67,7 +67,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = rel('../static/')
+STATIC_ROOT = rel('static/')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangosphinx',
     'ask',
     #'debug_toolbar',
     # Uncomment the next line to enable the admin:
@@ -132,6 +133,10 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+SPHINX_API_VERSION = 0x116
+SPHINX_PORT = 9312
+SPHINX_SERVER = '127.0.0.1'
 
 TEMPLATE_CONTEXT_PROCESSORS = {
     'ask.context_processors.tags',
