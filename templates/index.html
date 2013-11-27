@@ -66,8 +66,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Tags cloud</div>
                     <div class="panel-body" id="tagCloud">
-                        {% for tag in popular_tags %}
-                        <a href="/tag/?t={{ tag.name }}" class="tw{{ tag.weight }}">{{ tag.name }}</a>
+                        {% for name, weight in popular_tags.iteritems %}
+                        <a href="/tag/?t={{ name }}" class="tw{{ weight }}">{{ name }}</a>
                         {% empty %}
                         <div class="empty_list">No tags created so far</div>
                         {% endfor %}
