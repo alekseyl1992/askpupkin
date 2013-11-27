@@ -199,3 +199,13 @@
     font-size: large;
     padding-top: 2%;
 }
+
+.error404 {
+    font-size: 200px;
+    margin-left: 30%;
+    color: black;
+}
+
+.error0 {
+    color: #269abc;
+}

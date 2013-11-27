@@ -35,7 +35,16 @@
       <file leaf-file-name="index.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="199" column="19" selection-start="2499" selection-end="2499" vertical-scroll-proportion="0.8187919" vertical-offset="3094" max-vertical-offset="3708">
+            <state line="209" column="19" selection-start="2610" selection-end="2610" vertical-scroll-proportion="0.8187919" vertical-offset="3274" max-vertical-offset="3888">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/askpupkin/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="13" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
               <folding />
             </state>
           </provider>
@@ -44,18 +53,25 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ask/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="418" column="26" selection-start="13468" selection-end="13468" vertical-scroll-proportion="0.0" vertical-offset="7092" max-vertical-offset="8406">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state line="418" column="26" selection-start="13468" selection-end="13468" vertical-scroll-proportion="0.0" vertical-offset="1746" max-vertical-offset="8136">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/404.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="74" selection-start="6662" selection-end="6662" vertical-scroll-proportion="-14.0" vertical-offset="2214" max-vertical-offset="3204">
+            <state line="10" column="61" selection-start="287" selection-end="287" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="324">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questions.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/questions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="43" selection-start="0" selection-end="1912" vertical-scroll-proportion="-8.666667" vertical-offset="54" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
@@ -65,15 +81,6 @@
         <entry file="file://$PROJECT_DIR$/askpupkin/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="41" selection-start="643" selection-end="643" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="57" selection-start="2983" selection-end="2983" vertical-scroll-proportion="-17.333334" vertical-offset="702" max-vertical-offset="1818">
               <folding />
             </state>
           </provider>
@@ -91,7 +98,7 @@
       <file leaf-file-name="answers.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/answers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="72" selection-start="2250" selection-end="2261" vertical-scroll-proportion="-11.333333" vertical-offset="648" max-vertical-offset="1728">
+            <state line="53" column="72" selection-start="2250" selection-end="2261" vertical-scroll-proportion="0.0" vertical-offset="954" max-vertical-offset="1728">
               <folding />
             </state>
           </provider>
@@ -100,25 +107,7 @@
       <file leaf-file-name="answer.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/answer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="30" selection-start="1220" selection-end="1220" vertical-scroll-proportion="-11.925926" vertical-offset="146" max-vertical-offset="810">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="queries.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ask/queries.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="44" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0" vertical-offset="485" max-vertical-offset="2574">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="64" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-15.333333" vertical-offset="162" max-vertical-offset="1008">
+            <state line="26" column="30" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -134,10 +123,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ask/forms.py" />
         <option value="db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/" />
         <option value="$PROJECT_DIR$/ask/baseFiller.py" />
-        <option value="$PROJECT_DIR$/askpupkin/settings.py" />
         <option value="$PROJECT_DIR$/ask/models.py" />
         <option value="$PROJECT_DIR$/ask/queries.py" />
         <option value="$PROJECT_DIR$/templates/questions.html" />
@@ -149,6 +136,8 @@
         <option value="$PROJECT_DIR$/templates/answer.html" />
         <option value="$PROJECT_DIR$/ask/static/js/index.js" />
         <option value="$PROJECT_DIR$/templates/answers.html" />
+        <option value="$PROJECT_DIR$/askpupkin/settings.py" />
+        <option value="$PROJECT_DIR$/templates/404.html" />
         <option value="$PROJECT_DIR$/ask/static/css/index.css" />
       </list>
     </option>
@@ -333,15 +322,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ask/baseFiller.py" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -433,7 +422,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="askpupkin" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -459,27 +468,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="askpupkin" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -632,7 +621,6 @@
     <frame x="64" y="-7" width="1303" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3376" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -644,6 +632,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5003984" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3216" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3376" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -689,60 +678,23 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ask/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/e6354166/745a93b9-06cc-4ea6-9358-f3ea3176648d/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="468" selection-end="468" vertical-scroll-proportion="-9.931034" vertical-offset="0" max-vertical-offset="396">
-          <folding>
-            <marker date="0" expanded="true" signature="-1:-1" placeholder="drop table a..." />
-            <marker date="0" expanded="true" signature="-1:-1" placeholder="drop table a..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ask/baseFiller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="27" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0" vertical-offset="1102" max-vertical-offset="2574">
-          <folding>
-            <element signature="e#0#14#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/askpupkin/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="1" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
-          <folding />
-        </state>
+        <state line="118" column="27" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0" vertical-offset="1102" max-vertical-offset="2574" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="26" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1385232264272" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1385232264272" expanded="true" signature="-1:-1" placeholder="..." />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/questions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="477" selection-end="477" vertical-scroll-proportion="-6.6666665" vertical-offset="54" max-vertical-offset="1080">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="57" selection-start="2983" selection-end="2983" vertical-scroll-proportion="-17.333334" vertical-offset="702" max-vertical-offset="1818">
+        <state line="65" column="57" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1818">
           <folding />
         </state>
       </provider>
@@ -756,24 +708,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="64" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-15.333333" vertical-offset="162" max-vertical-offset="1008">
+        <state line="32" column="64" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="1008">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="74" selection-start="6662" selection-end="6662" vertical-scroll-proportion="-14.0" vertical-offset="2214" max-vertical-offset="3204">
+        <state line="144" column="74" selection-start="6662" selection-end="6662" vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="3204">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ask/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="26" selection-start="13468" selection-end="13468" vertical-scroll-proportion="0.0" vertical-offset="7092" max-vertical-offset="8406">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/answer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="30" selection-start="1220" selection-end="1220" vertical-scroll-proportion="-11.925926" vertical-offset="146" max-vertical-offset="810">
+        <state line="26" column="30" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="810">
           <folding />
         </state>
       </provider>
@@ -800,14 +743,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/answers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="72" selection-start="2250" selection-end="2261" vertical-scroll-proportion="-11.333333" vertical-offset="648" max-vertical-offset="1728">
+        <state line="53" column="72" selection-start="2250" selection-end="2261" vertical-scroll-proportion="0.0" vertical-offset="954" max-vertical-offset="1728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/askpupkin/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ask/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="418" column="26" selection-start="13468" selection-end="13468" vertical-scroll-proportion="0.0" vertical-offset="1746" max-vertical-offset="8136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/questions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="43" selection-start="0" selection-end="1912" vertical-scroll-proportion="-8.666667" vertical-offset="54" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/applications.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="264" column="30" selection-start="6100" selection-end="6100" vertical-scroll-proportion="0.42281878" vertical-offset="4500" max-vertical-offset="6660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="61" selection-start="287" selection-end="287" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="324">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/static/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="19" selection-start="2499" selection-end="2499" vertical-scroll-proportion="0.8187919" vertical-offset="3094" max-vertical-offset="3708">
+        <state line="209" column="19" selection-start="2610" selection-end="2610" vertical-scroll-proportion="0.8187919" vertical-offset="3274" max-vertical-offset="3888">
           <folding />
         </state>
       </provider>
