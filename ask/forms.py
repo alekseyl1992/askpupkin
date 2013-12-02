@@ -15,22 +15,16 @@ class TagsField(forms.CharField):
         cleaned_tags = []
 
         for tag in tags:
-            tag = str(tag).strip()
-            if tag != '':
-                if tag[-1] != ',':
-                    tag = tag[0:-1]
-
-                if not cleaned_tags.__contains__(tag):
-                    cleaned_tags.append(tag)
+            tag_name = tag.strip()
+            if tag_name != '':
+                if not cleaned_tags.__contains__(tag_name):
+                    cleaned_tags.append(tag_name)
 
         return cleaned_tags
 
     def validate(self, value):
         # Use the parent's handling of required fields, etc.
         super(TagsField, self).validate(value)
-
-        for tag in value:
-            print tag
 
         if len(value) > 3:
             raise forms.ValidationError("Should be 0-3 tags in here")

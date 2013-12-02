@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
     {% if request.path == '/logout/' %}
-    <meta http-equiv="refresh" content="3; url=/">
+    <meta http-equiv="refresh" content="1; url=/">
     {% endif %}
 </head>
 <body>
@@ -80,15 +80,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="lastRegisteredList">
-                                    {% for user in last_registered_left %}
-                                    <li><a href="#">{{ user.username }}</a></li>
+                                    {% for user_name in last_registered_left %}
+                                    <li><a href="/user/?name={{ user_name }}">{{ user_name }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="lastRegisteredList">
-                                    {% for user in last_registered_right %}
-                                    <li><a href="#">{{ user.username }}</a></li>
+                                    {% for user_name in last_registered_right %}
+                                    <li><a href="/user/?name={{ user_name }}">{{ user_name }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>

@@ -45,9 +45,19 @@ def tags(request):
 
 
 def last_registered(request):
-    last_registered = queries.get_last_registered_users()
+    mc = memcache.Client(['127.0.0.1:11211'], debug=0)
+    data = mc.get("last_registered_users")
+
+    if data:
+        last_registered_list = json.loads(data)
+    else:
+        users = queries.get_last_registered_users()
+        last_registered_list = [obj.username for obj in users]
+
+        data = json.dumps(last_registered_list)
+        mc.set("last_registered_users", data, 60*5)
 
     return {
-            'last_registered_left': last_registered[0:len(last_registered)/2],
-            'last_registered_right': last_registered[len(last_registered)/2: len(last_registered)],
+            'last_registered_left': last_registered_list[0:len(last_registered_list)/2],
+            'last_registered_right': last_registered_list[len(last_registered_list)/2: len(last_registered_list)],
     }

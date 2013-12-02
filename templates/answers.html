@@ -30,7 +30,7 @@
                         <div class="asker_name pull-right"><b>Asked by:</b> <a href="/user/?name={{ question.author.username }}">{{ question.author.username }}</a></div><br>
                         <b>Tags:</b>
                         {% for tag in question.tags.all %}
-                        <span><a href="#">{{ tag.name }}</a></span>
+                        <span><a href="/tag/?t={{ tag.name }}">{{ tag.name }}</a></span>
                         {% endfor %}
                         <div class="qdate pull-right">{{ question.date }}</div>
                     </div>

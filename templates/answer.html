@@ -20,7 +20,7 @@
             <div class="answerFooter">
                 <div class="asker_name pull-right"><b>Answered by:</b> <a href="/user/?name={{ answer.author.username }}">{{ answer.author.username }}</a></div><br>
 
-                {% if user == answer.author and page == 'answers' %}
+                {% if user == question.author and page == 'answers' %}
                     {% if answer.right == False %}
                     <a class="mark">Mark as right</a>
                     {% else %}

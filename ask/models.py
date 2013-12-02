@@ -6,6 +6,9 @@ from djangosphinx.models import SphinxSearch
 class Tag(models.Model):
     name = models.CharField(max_length=32, db_index=True)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Question(models.Model):
     title = models.CharField(max_length=100)
@@ -22,6 +25,9 @@ class Question(models.Model):
         }
     )
 
+    def __unicode__(self):
+        return self.title
+
 
 class Answer(models.Model):
     content = models.CharField(max_length=1024)
@@ -36,6 +42,9 @@ class Answer(models.Model):
             'content': 100,
         }
     )
+
+    def __unicode__(self):
+        return self.content
 
 
 class QuestionVote(models.Model):
