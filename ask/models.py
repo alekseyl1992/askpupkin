@@ -15,6 +15,7 @@ class Question(models.Model):
     content = models.CharField(max_length=2048)
     author = models.ForeignKey(User)
     date = models.DateTimeField()
+
     tags = models.ManyToManyField(Tag)
     rating = models.IntegerField()
     search = SphinxSearch(

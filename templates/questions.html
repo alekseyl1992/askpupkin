@@ -2,19 +2,27 @@
 
 {% block tabs %}
     {% if page == 'popular' %}
-    <li><a href="/">New</a></li>
-    <li class="active"><a>Popular</a></li>
+        <li><a href="/">New</a></li>
+        <li class="active"><a>Popular</a></li>
+        <li><a href="/statistics/">Statistics</a></li>
     {% elif page == 'new' %}
-    <li class="active"><a>New</a></li>
-    <li><a href="/popular/">Popular</a></li>
+        <li class="active"><a>New</a></li>
+        <li><a href="/popular/">Popular</a></li>
+        <li><a href="/statistics/">Statistics</a></li>
     {% elif page == 'tag' %}
-    <li><a href="/">New</a></li>
-    <li><a href="/popular/">Popular</a></li>
-    <li class="active"><a>Tag: {{ tag }} ({{ questions_count }})</a></li>
+        <li><a href="/">New</a></li>
+        <li><a href="/popular/">Popular</a></li>
+        <li><a href="/statistics/">Statistics</a></li>
+        <li class="active"><a>Tag: {{ tag }} ({{ questions_count }})</a></li>
     {% elif page == 'search' %}
-    <li><a href="/">New</a></li>
-    <li><a href="/popular/">Popular</a></li>
-    <li class="active"><a>Search: {{ search }} ({{ results_count }})</a></li>
+        <li><a href="/">New</a></li>
+        <li><a href="/popular/">Popular</a></li>
+        <li><a href="/statistics/">Statistics</a></li>
+        <li class="active"><a>Search: {{ search }} ({{ results_count }})</a></li>
+    {% elif page == 'statistics' %}
+        <li><a href="/">New</a></li>
+        <li><a>Popular</a></li>
+        <li class="active"><a>Statistics</a></li>
     {% endif %}
 {% endblock %}
 

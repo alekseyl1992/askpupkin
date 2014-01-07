@@ -1,4 +1,9 @@
 
+function makeToast(message, type)
+{
+    $.toast(message, {duration: 5000, sticky: false, type: type});
+}
+
 jQuery(document).ready(function($) {
     $(document).ajaxSend(function(event, xhr, settings) {
         function getCookie(name) {
@@ -64,10 +69,10 @@ jQuery(document).ready(function($) {
                         mark.text("Mark as right");
                 }
                 else
-                    alert(msg['status']);
+                    makeToast(msg['status'], 'danger');
             })
             .fail(function( msg ) {
-                alert(msg);
+                makeToast(msg, 'danger');
             });
         }
 
@@ -108,10 +113,10 @@ jQuery(document).ready(function($) {
                     if(msg['status'] == "ok")
                         entry.find('.rating_value').text(msg['rating']);
                     else
-                        alert(msg['status']);
+                        makeToast(msg['status'], 'danger');
               })
               .fail(function( msg ) {
-                    alert(msg);
+                    makeToast(msg, 'danger');
               });
         }
 

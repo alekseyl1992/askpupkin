@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block tabs %}
+    <li><a href="/">New</a></li>
+    <li><a href="/popular/">Popular</a></li>
+    <li class="active"><a href="/statistics/">Statistics</a></li>
+{% endblock %}
+
+{% block content %}
+    <div id="chart_div"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="/static/js/statistics.js"></script>
+{% endblock %}

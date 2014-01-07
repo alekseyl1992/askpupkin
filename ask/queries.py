@@ -46,7 +46,7 @@ def search_answers_count(query):
 
 
 def get_popular_tags():
-    return Tag.objects.annotate(quest_count=Count('question')).order_by('-quest_count')[0:25]
+    return Tag.objects.annotate(quest_count=Count('question')).order_by('-quest_count', 'name')
 
 
 def get_answers_count(question_id):

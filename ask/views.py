@@ -14,6 +14,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+import memcache
 
 def get_page_id(request):
     page_id_str = request.GET.get('page')
@@ -406,7 +407,6 @@ def rating(request):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-
 def mark(request):
     try:
         id = int(request.POST['id'])
@@ -460,3 +460,47 @@ def register(request):
         'form': form,
         'next': next
     })
+
+
+def statistics(request):
+    question_form, question_form_failed, question_id = question_form_view(request)
+    if question_id is not None:
+        return HttpResponseRedirect('/question/?q=' + str(question_id))
+
+    return render(request, 'statistics.html',
+    {
+        'page': 'statistics',
+        'question_form': question_form,
+        'question_form_failed': question_form_failed
+    })
+
+
+def chart(request):
+    mc = memcache.Client(['127.0.0.1:11211'], debug=0)
+    data = mc.get("chart")
+
+    if not data:
+        popular_tags = get_popular_tags()[0:25]
+        max_count = popular_tags[0].quest_count
+        if max_count == 0:
+            max_count = 1
+
+        tags = []
+        for tag in popular_tags:
+            norm_count = tag.quest_count * 100 / max_count
+
+            if norm_count > 80:
+                color = 'red'
+            elif norm_count > 60:
+                color = 'orange'
+            elif norm_count > 40:
+                color = 'green'
+            else:
+                color = 'light-blue'
+
+            tags.append([tag.name, tag.quest_count, color])
+
+        data = json.dumps(tags)
+        mc.set("chart", data, 3)
+
+    return HttpResponse(data, content_type="application/json")

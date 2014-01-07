@@ -12,7 +12,7 @@ def get_randomized_tags():
     if data:
         return json.loads(data)
     else:
-        popular_tags = queries.get_popular_tags()
+        popular_tags = queries.get_popular_tags()[0:25]
 
         if popular_tags.count() == 0:
             return []
@@ -20,6 +20,11 @@ def get_randomized_tags():
         max_count = popular_tags[0].quest_count
         min_count = popular_tags[len(popular_tags)-1].quest_count
         count_dif = max_count - min_count
+
+        #prevent division by zero
+        if count_dif == 0:
+            count_dif = 1
+
         weight_count = 5
 
         #popular_tags_list = list(popular_tags)
