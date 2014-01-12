@@ -16,8 +16,9 @@ function updateChart()
 
                 var options = {
                     title: 'Questions distribution by tags',
-                    vAxis: {title: 'Tag',  titleTextStyle: {color: 'green'}},
-                    height: 800,
+                    vAxis: {title: 'Tag',  titleTextStyle: {color: 'black'}},
+                    height: 600,
+                    chartArea: {left: 10, top: 20, width: "100%", height: "100%"},
                     animation: {
                         duration: 1000,
                         easing: 'out',
@@ -48,4 +49,25 @@ jQuery(document).ready(function($) {
             updateChart();
             setInterval(updateChart, 3000);
         }});
+
+    //nodeJS long-polling progressbar
+    var makeRequest = function() {
+			$.ajax({
+              type: "GET",
+              url: "/update/"
+            })
+            .done(function(obj) {
+                $(".progress-bar").css('width', obj + '%');
+                $('#progressCaption').text(obj + '%');
+
+                console.log("AJAX request ok");
+				makeRequest();
+            })
+            .fail(function(obj) {
+                console.log("AJAX request failed");
+				makeRequest();
+            });
+		};
+
+    makeRequest();
 })

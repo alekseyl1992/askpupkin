@@ -209,3 +209,22 @@
 .error0 {
     color: #269abc;
 }
+
+.progress {
+    position: relative;
+}
+
+.progress-bar {
+    z-index: 1;
+    position: absolute;
+}
+
+.progress span {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    color: black;
+    text-shadow: 1px 1px 2px black, 0 0 1em lightgray;
+    text-align: center;
+    width: 100%;
+}
